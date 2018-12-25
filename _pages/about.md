@@ -1,11 +1,11 @@
--------
-title:"About"
-permalink:/about/
+---
+title: "About"
+permalink: /about/
 header:
-  image:"/images/fb.jpg"
-  
- -----
- 
+  image: "/images/bio.jpg"
+---
+
+
  I'm a decision scientist with both Business and Programming expertise.
  Enthusiastic about new technologies and trends in Data Science!
  
