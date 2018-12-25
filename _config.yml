@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Sravan Roy"
-  avatar           : "/images/fb.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data Science Portfolio"
   location         : "Bangalore"
   email            :
