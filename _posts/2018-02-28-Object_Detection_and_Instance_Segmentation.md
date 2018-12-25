@@ -1,10 +1,10 @@
 ---
-title: "Machine Learning Project: Perceptron"
+title: "Machine Learning Project: Object Detection and Instance Segmentation"
 date: 2018-02-28
 tags: [machine learning, data science, neural network]
 header:
-  image: "/images/object_detection/classify.jpg"
-excerpt: "Machine Learning, Perceptron, Data Science"
+  image: "/images/classify.jpg"
+excerpt: "Machine Learning, Tensor Flow, Object Detection"
 mathjax: "true"
 ---
 
@@ -47,3 +47,17 @@ library(tidyverse)
 df <- read_csv("some_file.csv")
 head(df)
 ```
+
+Here's some inline code `x+y`.
+
+Here's an image:
+<img src="{{ site.url }}{{ site.baseurl }}/images/sheep.jpg" alt="linearly separable data">
+
+Here's another image using Kramdown:
+![alt]({{ site.url }}{{ site.baseurl }}/images/sheepml.jpg)
+
+Here's some math:
+
+$$z=x+y$$
+
+You can also put it inline $$z=x+y$$
