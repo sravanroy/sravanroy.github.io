@@ -1,47 +1,49 @@
------
-title:"Machine Learning Project : Object Detection"
-date: 2018-02-25
-tags: [machine learning, data science, neural networks, classification,MSCOCO]
+---
+title: "Machine Learning Project: Perceptron"
+date: 2018-02-28
+tags: [machine learning, data science, neural network]
 header:
   image: "/images/object_detection/classify.jpg"
-excerpt: "Machine Learning, Object Detection, Data Science"
-
------
+excerpt: "Machine Learning, Perceptron, Data Science"
+mathjax: "true"
+---
 
 # H1 Heading
 
-## H2 se
+## H2 Heading
 
-### H3 he
+### H3 Heading
 
-Here's some basic text
+Here's some basic text.
 
-and some *italics*
+And here's some *italics*
 
-some **bold** text
+Here's some **bold** text.
 
-what about a [link](https://github.com/sravanroy/)
+What about a [link](https://github.com/dataoptimal)?
 
-bulet lisy:
-* fur
-+ sec
-- thur
+Here's a bulleted list:
+* First item
++ Second item
+- Third item
 
-numer:
-1.f
-2.s
-3.t
+Here's a numbered list:
+1. First
+2. Second
+3. Third
 
-Pythin code block:
+Python code block:
 ```python
-   import numpy as np
-   
-   def test_function(x,y):
+    import numpy as np
+
+    def test_function(x, y):
       z = np.sum(x,y)
-	  return z
+      return z
 ```
 
 R code block:
 ```r
+library(tidyverse)
+df <- read_csv("some_file.csv")
 head(df)
 ```
