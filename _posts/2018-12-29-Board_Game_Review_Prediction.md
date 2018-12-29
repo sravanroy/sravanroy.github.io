@@ -1,10 +1,10 @@
 ---
-title: "Object Detection and Instance Segmentation"
+title: "Board Game Review Prediction"
 date: 2018-02-28
-tags: [machine learning, data science, neural network]
+tags: [machine learning, linear regressor, random forest regressor]
 header:
-  image: "/images/classify.jpg"
-excerpt: "Machine Learning, Tensor Flow, Object Detection"
+  image: "/images/board_game/game.jpg"
+excerpt: "Machine Learning, Pandas, Linear and Non-linear regressors"
 mathjax: "true"
 ---
 

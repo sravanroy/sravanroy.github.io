@@ -1,10 +1,10 @@
 ---
 layout: posts
 permalink: /machine-learning/
-title: "Machine Learning Posts by Tags"
+title: "Machine Learning Projects"
 author_profile: true
 header:
-  image: "/images/bio.jpg"
+  image: "/images/ml.png"
 ---
 
 
