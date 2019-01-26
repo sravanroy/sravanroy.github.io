@@ -3,7 +3,7 @@ title: "Object Detection and Instance Segmentation"
 date: 2018-02-28
 tags: [machine learning, object detection, neural network]
 header:
-  image: "/images/classify.jpg"
+  image: "/images/ODIS.jpg"
 excerpt: "Machine Learning, Tensor Flow, Object Detection"
 mathjax: "true"
 ---
