@@ -8,10 +8,10 @@ excerpt: "Deep learning, keras, handwritten digits"
 mathjax: "true"
 ---
 
-## *Basic prediction of digits using Pandas and TensorFlow !*
+## *Simple prediction of digits using Pandas and TensorFlow !*
 ----
 * A basic model to predict the handwritten images in MNIST database
-+ Python TensorFlow API is implemented to achieve this purpose
++ TensorFlow API is implemented to achieve this purpose
 
 
 The required packages are imported into the notebook as shown-
@@ -61,7 +61,7 @@ Epoch 2/3
 Epoch 3/3
 60000/60000 [==============================] - 10s 167us/step - loss: 0.0725 - acc: 0.9770
 ```
-calculating the validation loss 
+Calculating the validation loss 
 ```python
 val_loss, val_acc = model.evaluate(x_test, y_test)
 print(val_loss, val_acc)
@@ -88,8 +88,8 @@ plt.show()
 ```
 ![alt]({{ site.url }}{{ site.baseurl }}/images/number_prediction/download7.png)
 
-*This is a basic walkthrough for building and predicting images from a model *
-*The parameters for fitting the model can be flexible, choosing from a wide range of loss functions and optimmizers* 
+*This is a basic walkthrough for building and predicting images from a model*
+*The parameters for fitting the model can be flexible, with a wide range of loss functions and optimizers to experiment with!* 
  
 
 
