@@ -17,6 +17,7 @@ Throughout the financial sector, machine learning algorithms are being developed
 Furthermore, using metrics suchs as precision, recall, and F1-scores, we will investigate why the classification accuracy for these algorithms can be misleading.
 
 In addition, we will explore the use of data visualization techniques common in data science, such as parameter histograms and correlation matrices, to gain a better understanding of the underlying distribution of data in our data set. Let's get started!
+The dataset used is "creditcard" data downloaded from the kaggle website
 
 ## 1. Importing Necessary Libraries
 
