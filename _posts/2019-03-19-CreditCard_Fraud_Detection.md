@@ -1,6 +1,6 @@
 ---
 title: "Credit Card Fraud Detection"
-date: 2018-12-29
+date: 2019-03-14
 tags: [machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm]
 header:
   image: "/images/credit_fraud/CFD.png"

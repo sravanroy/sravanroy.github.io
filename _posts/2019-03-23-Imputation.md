@@ -1,10 +1,12 @@
-Imputating Categorical Variables
-================
-Sravan Roy
-23 March 2019
-
-R Markdown
-----------
+---
+title: "Imputing Categorical Variables"
+date: 2019-03-23
+tags: [machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm]
+header:
+  image: "/images/credit_fraud/CFD.png"
+excerpt: "Machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm"
+mathjax: "true"
+---
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
