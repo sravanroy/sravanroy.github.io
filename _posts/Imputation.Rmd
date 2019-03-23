@@ -1,15 +1,9 @@
 ---
-title: "Imputation of categorical variables"
-date: 2018-12-29
-tags: [Missing value imputation, Data cleaning, Categorical Imputation]
-header:
-  image: "/images/credit_fraud/CFD.png"
-excerpt: "Machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm"
-mathjax: "true"
-output: github_document
+title: "Imputating Categorical Variables"
+author: "Sravan Roy"
+date: "23 March 2019"
+output: rmarkdown:github_document
 ---
-
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -34,5 +28,3 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-
