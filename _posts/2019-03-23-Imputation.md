@@ -3,7 +3,7 @@ title: "Imputing Categorical Variables"
 date: 2019-03-23
 tags: [machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm]
 header:
-  image: "/images/credit_fraud/CFD.png"
+  
 excerpt: "Machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm"
 mathjax: "true"
 ---
