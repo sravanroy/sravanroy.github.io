@@ -1,6 +1,6 @@
 ---
 title: "Credit Card Fraud Detection"
-date: 2019-04-12
+date: 2018-12-28
 tags: [machine learning, Local Outlier Factor (LOF), Isolation Forest Algorithm]
 header:
   image: "/images/credit_fraud/CFD.png"
@@ -245,7 +245,7 @@ Isolation Forest: 71
 avg / total       1.00      1.00      1.00     28481
 ```
 
-* Even though the accracy is high, both the models fail to correctly predict the fraud cases with Isolation Forest showing a better precision and recall*
-* The scope extends to implementing more models and reducing the training variables and increasing the training data*
+* Even though the accracy is high, both the models fail to correctly predict the fraud cases with Isolation Forest showing a better precision and recall
+* The scope extends to implementing more models and reducing the training variables and increasing the training data
 
 
