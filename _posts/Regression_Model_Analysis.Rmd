@@ -1,0 +1,129 @@
+---
+title: "Regression Model Analysis"
+author: "Sravan Roy"
+date: "1 June 2019"
+output: 
+  html_document:
+    number_sections: true
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Executive Summary
+
+In this report, we look at a data set of a collection of car, and are interested in exploring the relationship between a set of variables and miles per gallon (MPG) (outcome). Particularly, we are interested in the following two questions:
+
+* "Is an automatic or manual transmission better for MPG"
+* "Quantify the MPG difference between automatic and manual transmissions"
+
+In order to answer these two questions, we follow the steps below:
+
+* Load and process the data such that it makes more sense
+* Conduct a basic exploratory data analyses to show the relationship between mpg and am
+* Fit multiple models to the data and select the best model
+* Diagnose the model and quantify the uncertainty
+* Using the model we choose, draw conclusion and answer the questions
+
+# Load and Process the Data
+
+Load the mtcars dataset and have a overview of it.
+
+```{r echo=T,warning=FALSE}
+library(ggplot2)
+data(mtcars)
+head(mtcars)
+```
+
+Change some variables to factor since they represent categories not continuous values.
+
+```{r }
+mtcars$cyl <- as.factor(mtcars$cyl)
+mtcars$vs <- as.factor(mtcars$vs)
+mtcars$am <- factor(mtcars$am)
+levels(mtcars$am) <- c("automatic", "manual")
+mtcars$gear <- factor(mtcars$gear)
+mtcars$carb <- factor(mtcars$carb)
+```
+
+# Exploratory Analysis
+
+We are interested in the relationship between mpg (miles per gallon) and am (transmission), so let's take a look.
+
+```{r}
+boxplot(mpg ~ am, data = mtcars, xlab = "Transmission (0 = automatic, 1 = manual)")
+```
+
+Box plot clearly shows that there's a good separation between two groups, and cars with manual transmission have higher mpg than cars with automatice transmission.
+
+# Statistical Inference
+
+We can also conduct a T-test to confirm our observation. Define the null hypothesis as manual and automatic transmissions result in the same mpg.
+
+```{r}
+t.test(mpg ~ am, data = mtcars)
+```
+
+P-value is 0.00137, and confidence interval does not include zero, so we reject the null hypothesis and accept the difference in mpg between manual and automatic transmission, which we observed earlier.
+
+# Regression Models
+
+## Simple Model
+
+First we use the simplest model with mpg as outcome and am as predictor.
+
+```{r}
+simpleMod <- lm(mpg ~ am, mtcars)
+summary(simpleMod)
+```
+
+This shows that cars with automatic transmission have 17.147 average mpg, whereas cars with manual transmission have averagely 7.245 mpg higher. The p-values are very low, but the R-squared value is 0.3385, which means that the model can only explain 33.85% of the mpg variance. Therefore, we need to take more variables into consideration.
+
+## Full Model
+
+We then fit all variables into the model.
+
+```{r}
+fullMod <- lm(mpg ~ ., mtcars)
+summary(fullMod)
+```
+
+This time the R-squared value 0.8931 is decent. However, the p-values are all greater than 5% and hence show no significance. We then need to select the most significant variables. This can be done by backward selection using step function.
+
+## Step Model
+
+```{r}
+stepMod <- step(fullMod, direction = "backward", k=log(nrow(mtcars)), trace = F)
+summary(stepMod)
+```
+
+The resulting model is mpg ~ wt + qsec + am, with all p-values smaller than 5% and the adjusted R-squared value 0.8336 which accouts for 83.36% of the variance in mpg.
+
+The am coefficient indicates that holding wt and qsec constant, cars with manual transmission have 2.9358 more mpg than cars with automatic transmission on average.
+
+# Model diagnosis
+
+The 95% two-sided confidence interval of the coefficients are as follows:
+
+```{r}
+confint(stepMod)
+```
+
+Let's plot the diagnosis of the model.
+
+```{r}
+par(mfrow = c(2, 2))
+plot(stepMod)
+```
+
+* Residuals vs Fitted plot shows no discernible pattern.
+* Normal Q-Q plot indicates the residuals meets the normality assumption.
+* Scale-Location shows a slightly upward trend, but it is only very significant.
+* Residuals vs Leverage plot indicates that all values fall within the 0.5 boundary so there is no outliers.
+
+# Conclusion
+
+From the above analysis, we can conclude that a manual transmission is better in terms of MPG than an automatic transmission. Holding weight (lb/1000) and qsec (1/4 mile time) constant, a manual tranmission has averagely 2.9358 more MPG (miles per gallon) than an automatic transmission.
+
