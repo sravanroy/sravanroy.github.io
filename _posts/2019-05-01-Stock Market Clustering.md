@@ -11,7 +11,7 @@ mathjax: "true"
 ----
 * The stock market data is prepared by picking few comapanies data from reliable data source such as yahoo/morningstar
 + K-Means is implemented before and after performing PCA on the stock data  
-_ The models were implemented in Python Jupyter notebook
+* The models were implemented in Python Jupyter notebook
 
 ```python
 from pandas_datareader import data
@@ -20,7 +20,7 @@ import pandas as pd
 import datetime
 import numpy as np
 ```
-# Define the instruments to download. We would like to see Apple, Microsoft and others.
+Define the instruments to download. We would like to see Apple, Microsoft and others.
 
 ```python
 companies_dict = {
@@ -67,59 +67,17 @@ end_date = '2017-12-31'
 panel_data = data.DataReader(companies_dict.values(), data_source, start_date, end_date).unstack(level=0)
 
 # Print Axes Labels
-print(panel_data.axes)
+#print(panel_data.axes)
 
 # Find Stock Open and Close Values
 stock_close = panel_data['Close']
 stock_open = panel_data['Open']
 
-print(stock_close.iloc[0])
+#print(stock_close.iloc[0])
 #print(stock_open.iloc[0])
 ```
 
-[DatetimeIndex(['2015-01-01', '2015-01-02', '2015-01-05', '2015-01-06',
-               '2015-01-07', '2015-01-08', '2015-01-09', '2015-01-12',
-               '2015-01-13', '2015-01-14',
-               ...
-               '2017-12-18', '2017-12-19', '2017-12-20', '2017-12-21',
-               '2017-12-22', '2017-12-25', '2017-12-26', '2017-12-27',
-               '2017-12-28', '2017-12-29'],
-              dtype='datetime64[ns]', name=u'Date', length=782, freq=None), MultiIndex(levels=[[u'Close', u'High', u'Low', u'Open', u'Volume'], [u'AAPL', u'AMZN', u'AXP', u'BA', u'BAC', u'CVX', u'F', u'GE', u'HMC', u'IBM', u'INTC', u'JNJ', u'KO', u'LMT', u'MA', u'MCD', u'MSBHY', u'MSFT', u'NAV', u'NOC', u'PEP', u'SNE', u'SYMC', u'TM', u'TXN', u'VLO', u'WBA', u'XOM']],
-           labels=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]],
-           names=[None, u'Symbol'])]
-Symbol
-AAPL     110.380
-AMZN     310.350
-AXP       93.040
-BA       129.980
-BAC       17.890
-CVX      112.180
-F         15.500
-GE        25.270
-HMC       29.520
-IBM      160.440
-INTC      36.290
-JNJ      104.570
-KO        42.220
-LMT      192.570
-MA        86.160
-MCD       93.700
-MSBHY     36.762
-MSFT      46.450
-NAV       33.480
-NOC      147.390
-PEP       94.560
-SNE       20.470
-SYMC      25.655
-TM       125.480
-TXN       53.465
-VLO       49.500
-WBA       76.200
-XOM       92.450
-Name: 2015-01-01 00:00:00, dtype: float64
-
-
-# Calculate daily stock movement
+Calculate daily stock movement
 
 ```python
 stock_close = np.array(stock_close).T
@@ -137,36 +95,8 @@ for i in range(0, len(companies)):
     
 # print(movements.shape)
 ```
-Company: Apple, Change: 16.022
-Company: Amazon, Change: -78.5675
-Company: American Express, Change: 8.126
-Company: Boeing, Change: 111.6019
-Company: Bank of America, Change: -4.0698
-Company: Chevron, Change: 21.901
-Company: Ford, Change: -5.6601
-Company: General Electrics, Change: 4.8531
-Company: Honda, Change: -9.06
-Company: IBM, Change: 18.884
-Company: Intel, Change: 20.0416
-Company: Johnson & Johnson, Change: 31.88
-Company: Coca Cola, Change: 13.3811
-Company: Lockheed Martin, Change: 60.84
-Company: MasterCard, Change: 25.525
-Company: McDonalds, Change: 53.0452
-Company: Mitsubishi, Change: 30.5241
-Company: Microsoft, Change: 29.5423
-Company: Navistar, Change: -0.78
-Company: Northrop Grumman, Change: 78.345
-Company: Pepsi, Change: 40.1469
-Company: Sony, Change: 3.1701
-Company: Symantec, Change: 13.1851
-Company: Toyota, Change: -19.985
-Company: Texas Instruments, Change: 31.1973
-Company: Valero Energy, Change: 28.52
-Company: Walgreen, Change: -1.4829
-Company: Exxon, Change: 9.03
 
-# Normalize the stock data to scale the changes in the stock movements evenly across all companies
+Normalize the stock data to scale the changes in the stock movements evenly across all companies
 
 ```python
 # Import Normalizer
