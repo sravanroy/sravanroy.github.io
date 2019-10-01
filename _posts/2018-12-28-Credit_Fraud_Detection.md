@@ -9,15 +9,15 @@ mathjax: "true"
 ---
 # Credit Fraud Detection
 
-Throughout the financial sector, machine learning algorithms are being developed to detect fraudulent transactions.  In this project, that is exactly what we are going to be doing as well.  Using a dataset of of nearly 28,500 credit card transactions and multiple unsupervised anomaly detection algorithms, we are going to identify transactions with a high probability of being credit card fraud.  In this project, we will build and deploy the following two machine learning algorithms:
+Throughout the financial sector, machine learning algorithms are being developed to detect fraudulent transactions. Using a dataset of of nearly 285K credit card transactions and multiple unsupervised anomaly detection algorithms, we are going to identify transactions with a high probability of being credit card fraud. We will build and deploy the following two machine learning algorithms:
 
 * Local Outlier Factor (LOF)
 * Isolation Forest Algorithm
 
-Furthermore, using metrics suchs as precision, recall, and F1-scores, we will investigate why the classification accuracy for these algorithms can be misleading.
+Furthermore, using metrics such as precision, recall, and F1-scores, we will investigate why the classification accuracy for these algorithms can be misleading.
 
-In addition, we will explore the use of data visualization techniques common in data science, such as parameter histograms and correlation matrices, to gain a better understanding of the underlying distribution of data in our data set. Let's get started!
-The dataset used is "creditcard" data downloaded from the kaggle website
+In addition, we will explore the use of data visualization techniques common in data science, such as parameter histograms and correlation matrices, to gain a better understanding of the underlying distribution of data in our data set. 
+The dataset used is "creditcard" data and can be downloaded from the kaggle website
 
 ## 1. Importing Necessary Libraries
 
@@ -168,7 +168,7 @@ object is with respect to the surrounding neighborhood.
 
 **Isolation Forest Algorithm**
 
-The IsolationForest ‘isolates’ observations by randomly selecting a feature and then randomly selecting 
+The IsolationForest â€˜isolatesâ€™ observations by randomly selecting a feature and then randomly selecting 
 a split value between the maximum and minimum values of the selected feature.
 
 Since recursive partitioning can be represented by a tree structure, the number of splittings required to 
