@@ -12,7 +12,7 @@ mathjax: "true"
 ---
 * The model was implemented in Python 3, Keras and Tensorflow
 + It was pre-trained on Microsoft's COCO dataset 
-_ The model could create boundary boxes around our own customized images
+* The model could create boundary boxes around our own customized images
 
 The required packages are imported into the python notebook as shown-
 ```python
