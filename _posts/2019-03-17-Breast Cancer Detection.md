@@ -12,7 +12,7 @@ mathjax: "true"
 ----
 * The dataset is retrieved directly from uci repository
 + SVM and KNN models were deployed to predict the cancer class as malign or benign   
-_ The models were implemented in Python Jupyter notebook
+* The models were implemented in Python Jupyter notebook
 
 ```python
 # Load all the required libraries
@@ -156,7 +156,7 @@ for name, model in models: # run  KFold 10 times on train data on both models to
 	KNN: 0.973117 (0.018442)
     SVM: 0.951558 (0.028352)
 ```
-This is the accuracy for the training data for both models
+This is the accuracy for training data for both the models
 
 ```python
 # Make predictions on validation dataset
