@@ -12,7 +12,7 @@ mathjax: "true"
 ----
 * A [dataset](https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) of over 80,000 games is used to train both a linear regressor and a random forest regressor
 + Reviews for a game are then predicted based on significant board game parameters   
-_ The models were implemented in Python Jupyter notebook
+* The models were implemented in Python Jupyter notebook
 
 The required packages are imported into the notebook as shown-
 ```python
@@ -26,18 +26,13 @@ The required packages are imported into the notebook as shown-
   import seaborn as sns
   from sklearn.model_selection import train_test_split
 ```
-Now the games [dataset] (https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) is loaded into the environment
+Now the games [dataset](https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) is loaded into the environment
 ```python
   games = pd.read_csv("games.csv")
-  print(games.columns)
-  print(games.shape)
+  #print(games.columns)
+   print(games.shape)
 ```
- Index(['id', 'type', 'name', 'yearpublished', 'minplayers', 'maxplayers',
-       'playingtime', 'minplaytime', 'maxplaytime', 'minage', 'users_rated',
-       'average_rating', 'bayes_average_rating', 'total_owners',
-       'total_traders', 'total_wanters', 'total_wishers', 'total_comments',
-       'total_weights', 'average_weight'],
-      dtype='object')
+ 
 (81312, 20) 
 
 A histogram of all the ratings in the **average_rating** column is plotted, which is the dependent target variable that needs to be predicted
@@ -46,54 +41,13 @@ A histogram of all the ratings in the **average_rating** column is plotted, whic
  plt.show() 
 ```
 ![alt]({{ site.url }}{{ site.baseurl }}/images/board_game/hist1.png)
+
+
 Since most of the ratings are *zero*, the game paramters with rating greater than zero are compared against those with zero rating
 ```python
-  print(games[games["average_rating"]==0].iloc[0])
-  print(games[games["average_rating"]>0].iloc[0])
+  #print(games[games["average_rating"]==0].iloc[0])
+  #print(games[games["average_rating"]>0].iloc[0])
 ```
-id                             318      
-type                     boardgame
-name                    Looney Leo
-yearpublished                    0
-minplayers                       0
-maxplayers                       0
-playingtime                      0
-minplaytime                      0
-maxplaytime                      0
-minage                           0
-users_rated                      0
-average_rating                   0
-bayes_average_rating             0
-total_owners                     0
-total_traders                    0
-total_wanters                    0
-total_wishers                    1
-total_comments                   0
-total_weights                    0
-average_weight                   0
-Name: 13048, dtype: object	 
----
-id                                  12333
-type                            boardgame
-name                    Twilight Struggle
-yearpublished                        2005
-minplayers                              2
-maxplayers                              2
-playingtime                           180
-minplaytime                           180
-maxplaytime                           180
-minage                                 13
-users_rated                         20113
-average_rating                    8.33774
-bayes_average_rating              8.22186
-total_owners                        26647
-total_traders                         372
-total_wanters                        1219
-total_wishers                        5865
-total_comments                       5347
-total_weights                        2562
-average_weight                     3.4785
-Name: 0, dtype: object
 
 As most of the data doesn't have any ratings by users, the data is cleaned to remove all the rows without any **users_rated** and also dropped the missing values
 ```python
@@ -104,6 +58,7 @@ plt.hist(games["average_rating"])
 plt.show()
 ```
 ![alt]({{ site.url }}{{ site.baseurl }}/images/board_game/hist2.png)
+
 Correlation between the game parameters are used for training the models on only key parameters to prevent overfitting
 ```python
 corrmat = games.corr()
