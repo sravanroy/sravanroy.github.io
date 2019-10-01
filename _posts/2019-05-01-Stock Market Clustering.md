@@ -108,13 +108,11 @@ from sklearn.cluster import KMeans
 normalizer = Normalizer()
 new = normalizer.fit_transform(movements)
 
-print(new.max())
-print(new.min())
-print(new.mean())
+#print(new.max())
+#print(new.min())
+#print(new.mean())
 ```
-0.2615190668148208
--0.26198554519085615
-0.0010778514692573902
+Building the pipeline
 
 ```python
 # Normalizer for use in pipeline
@@ -129,9 +127,9 @@ pipeline = make_pipeline(normalizer, kmeans)
 # Fit pipeline to the daily price movements
 pipeline.fit(movements)
 
-print(kmeans.inertia_)
+#print(kmeans.inertia_)
 ```
-9.645378935749008
+Predict the labels
 
 ```python
 # Import pandas
