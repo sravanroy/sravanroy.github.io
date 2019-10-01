@@ -10,7 +10,7 @@ mathjax: "true"
 
 ## *This is a simple board game review predictor using machine learning models !*
 ----
-* A [dataset] (https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) of over 80,000 games is used to train both a linear regressor and a random forest regressor
+* A [dataset](https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) of over 80,000 games is used to train both a linear regressor and a random forest regressor
 + Reviews for a game are then predicted based on significant board game parameters   
 _ The models were implemented in Python Jupyter notebook
 
