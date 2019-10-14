@@ -157,25 +157,6 @@ for name, model in models:
 
 
 ```
-
-Calculate daily stock movement
-
-```python
-stock_close = np.array(stock_close).T
-stock_open = np.array(stock_open).T
-
-row, col = stock_close.shape
-
-movements = np.zeros([row, col])
-
-for i in range(0, row):
-    movements[i,:] = np.subtract(stock_close[i,:], stock_open[i,:])
-
-for i in range(0, len(companies)):
-   print('Company: {}, Change: {}'.format(companies[i][0], sum(movements[i][:])))
-    
-# print(movements.shape)
-```
 ## Results
 
 ```python
