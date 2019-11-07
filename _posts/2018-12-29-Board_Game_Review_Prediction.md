@@ -11,7 +11,7 @@ mathjax: "true"
 ## *This is a simple board game review predictor using machine learning models !*
 ----
 * A [dataset](https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) of over 80,000 games is used to train both a linear regressor and a random forest regressor
-+ Reviews for a game are then predicted based on significant board game parameters   
++ Reviews for a game are then predicted based on significant features in the dataset   
 * The models were implemented in Python Jupyter notebook
 
 The required packages are imported into the notebook as shown-
@@ -29,8 +29,7 @@ The required packages are imported into the notebook as shown-
 Now the games [dataset](https://github.com/sravanroy/sravanroy.github.io/tree/master/datasets/board_game_predictor/games.csv) is loaded into the environment
 ```python
   games = pd.read_csv("games.csv")
-  #print(games.columns)
-   print(games.shape)
+  print(games.shape)
 ```
  
 (81312, 20) 
@@ -43,7 +42,7 @@ A histogram of all the ratings in the **average_rating** column is plotted, whic
 ![alt]({{ site.url }}{{ site.baseurl }}/images/board_game/hist1.png)
 
 
-Since most of the ratings are *zero*, the game paramters with rating greater than zero are compared against those with zero rating
+Since most of the ratings are *zero*, the game parameters with rating greater than zero are compared against those with zero rating
 ```python
   #print(games[games["average_rating"]==0].iloc[0])
   #print(games[games["average_rating"]>0].iloc[0])
@@ -128,8 +127,10 @@ mean_squared_error(predictions,test[target])
 The error is much lower when compared to the previous linear model.
 In this case, a random forest model is best fitted for making review predictions of the board games
 
-*The scope extends to using further non-linear regressors which might have a better accuracy of prediction*
-*This prediction information comes to handy if we wanted to know the kind of games people liked and get more higher ratings !* 
+### Wrapping up
+
++ *The scope extends to using further non-linear regressors which might have a better accuracy of prediction*
++ *This prediction information comes to handy if we wanted to know the kind of games people liked and get more higher ratings !* 
  
 
 
