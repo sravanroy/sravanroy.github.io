@@ -1,5 +1,5 @@
 ---
-title: "Object Detection and Instance Segmentation"
+title: "Implementation of Mask R-CNN architecture on a custom dataset"
 date: 2018-02-28
 tags: [machine learning, object detection, neural network]
 header:
@@ -10,9 +10,9 @@ mathjax: "true"
 
 ## *Detecting objects and generating boundary boxes for custom images using Mask RCNN model!*
 ---
-* The model was implemented in Python 3, Keras and Tensorflow
-+ It was pre-trained on Microsoft's COCO dataset 
-* The model could create boundary boxes around our own customized images
+* First, let's clone the mask rcnn repository which has the architecture for Mask R-CNN from this [link](https://github.com/matterport/Mask_RCNN.git)
++ Next, we need to download the pretrained weights using this [link](https://github.com/matterport/Mask_RCNN/releases)
+* Finally, we will use the Mask R-CNN architecture and the pretrained weights to generate predictions for our own images
 
 The required packages are imported into the python notebook as shown-
 ```python
@@ -36,6 +36,8 @@ Set the root directory and load the trained weights file
 ```python
 # Root directory of the project
 ROOT_DIR = os.getcwd()
+
+Next, we will define the path for the pretrained weights and the images on which we would like to perform segmentation:
 
 # Directory to save logs and trained model
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
@@ -73,8 +75,8 @@ Images: 35185
 Classes: ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush']
 
 ```
+Next, we will create our model and load the pretrained weights which we downloaded earlier
 
-Load the model
 ```python
 # Create model in inference mode
 with tf.device(DEVICE):
@@ -93,7 +95,7 @@ elif config.NAME == "coco":
 print("Loading weights ", weights_path)
 model.load_weights(weights_path, by_name=True)
 ```
-Run object detection
+Run the model on our custom images
 
 ```python
 # Load a random image from the images folder
